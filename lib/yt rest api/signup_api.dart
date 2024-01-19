@@ -1,10 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class SignUpApi extends StatelessWidget {
   SignUpApi({super.key});
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  void login(String email, password) async {
+    try {
+      Response response =
+          await post(Uri.parse('https://reqres.in/api/register'), body: {
+        'email': email,
+        'password': password,
+      });
+      if (response.statusCode == 200) {
+        print('account Created Successfully');
+      } else {
+        print('api failed');
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +60,9 @@ class SignUpApi extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.9,
               child: TextButton(
                 style: TextButton.styleFrom(backgroundColor: Colors.green),
-                onPressed: () {},
+                onPressed: () {
+                  login(emailController.text, passwordController.text);
+                },
                 child: const Text(
                   'Sign Up',
                   style: TextStyle(color: Colors.white),
