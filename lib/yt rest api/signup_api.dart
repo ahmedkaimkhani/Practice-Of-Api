@@ -10,11 +10,18 @@ class SignUpApi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Signup Api'),
+        backgroundColor: Colors.green,
+        centerTitle: true,
+        title: const Text(
+          'Signup Api',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextFormField(
               controller: emailController,
@@ -30,9 +37,17 @@ class SignUpApi extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Sign Up'),
+            SizedBox(
+              height: 50,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: TextButton(
+                style: TextButton.styleFrom(backgroundColor: Colors.green),
+                onPressed: () {},
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
           ],
         ),
