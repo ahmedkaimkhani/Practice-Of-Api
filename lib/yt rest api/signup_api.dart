@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -15,6 +17,8 @@ class SignUpApi extends StatelessWidget {
         'password': password,
       });
       if (response.statusCode == 200) {
+        var data = jsonDecode(response.body.toString());
+        print(data['id']);
         print('account Created Successfully');
       } else {
         print('api failed');
