@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:repractice/yt%20rest%20api/login_api.dart';
+import 'yt rest api/upload_image.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: LoginApi(),
+      home: UploadImageApi(),
     );
   }
 }
