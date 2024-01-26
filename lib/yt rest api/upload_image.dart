@@ -49,6 +49,7 @@ class _UploadImageApiState extends State<UploadImageApi> {
     request.files.add(multiPort);
     var response = await request.send();
 
+    print(response.stream.toString());
     if (response.statusCode == 200) {
       print('Image uploaded');
       setState(() {
